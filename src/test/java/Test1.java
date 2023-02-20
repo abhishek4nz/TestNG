@@ -4,13 +4,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Test1 {
-
-    WebDriver driver;
+public class Test1 extends Base {
 
     @BeforeClass
     void setup() {
-    System.setProperty("webdriver.chrome.driver","//home//innofied//Documents//Selenium//Drivers//chromedriver");
+    System.setProperty("webdriver.chrome.driver",path);
     driver = new ChromeDriver();
     driver.get("https://google.com");
     }
