@@ -1,16 +1,18 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.*;
 
 public class Test1 extends Base {
 
-    @BeforeClass
+    @BeforeSuite
     void setup() {
-    System.setProperty("webdriver.chrome.driver",path);
-    driver = new ChromeDriver();
-    driver.get("https://google.com");
+        System.setProperty("webdriver.chrome.driver", path);
+    }
+
+    @BeforeTest
+    void browser() {
+        driver = new ChromeDriver();
     }
 
     @AfterMethod
@@ -19,9 +21,17 @@ public class Test1 extends Base {
     }
 
     @Test
-    void first()    {
-        System.out.println("come on");
-        driver.close();
+    void first() {
+        driver.get("https://google.com");
     }
 
+    @Test
+    void second() {
+        Assert.assertEquals("Google", driver.getTitle());
+    }
+
+    @AfterTest
+    void tearDown() {
+        driver.close();
+    }
 }
