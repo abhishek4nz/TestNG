@@ -4,4 +4,5 @@ public class Base {
 
      static WebDriver driver;
      String path="//home//innofied//Documents//Selenium//Drivers//chromedriver";
+     String URL= "https://www.saucedemo.com/";
 }

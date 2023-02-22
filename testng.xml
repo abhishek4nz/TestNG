@@ -3,7 +3,12 @@
 <suite name="TestNG Test Suite">
     <test verbose="2" preserve-order="true" name="My first test report">
         <classes>
-            <class name="Test1"></class>
+            <class name="Test1">
+<!--                <methods>
+                    <exclude name="second"/>
+                </methods>         -->
+            </class>
+            <class name="Test2"></class>
         </classes>
     </test>
 </suite>

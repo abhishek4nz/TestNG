@@ -1,4 +1,4 @@
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -12,22 +12,45 @@ public class Test1 extends Base {
 
     @BeforeTest
     void browser() {
+
         driver = new ChromeDriver();
+        driver.get(URL);
     }
 
     @AfterMethod
-    void delay() throws InterruptedException {
-        Thread.sleep(2000);
+    void actionDelay() throws InterruptedException {
+        Thread.sleep(500);
     }
 
-    @Test
+    @AfterClass
+    void pageDelay() throws InterruptedException {
+        Thread.sleep(1000);
+    }
+
+    @Test(alwaysRun = true, priority = 0)
+    void currentURL() {
+        Assert.assertEquals(URL, driver.getCurrentUrl());
+    }
+
+    @Test(priority = 1)
     void first() {
-        driver.get("https://google.com");
+        driver.get("https://saucedemo.com");
     }
 
-    @Test
+    @Test(priority = 4)
     void second() {
-        Assert.assertEquals("Google", driver.getTitle());
+        Assert.assertEquals("Swag Labs", driver.getTitle());
+    }
+
+    @Test(priority = 2)
+    void third() {
+        driver.findElement(By.id("user-name")).sendKeys("standard_user");
+        driver.findElement(By.id("password")).sendKeys("secret_sauce");
+    }
+
+    @Test(priority = 3, dependsOnMethods = {"first", "third"})
+    void submit() {
+        driver.findElement(By.id("login-button")).submit();
     }
 
     @AfterTest
