@@ -53,7 +53,7 @@ public class Test1 extends Base {
         driver.findElement(By.id("login-button")).submit();
     }
 
-    @AfterTest
+    @AfterSuite
     void tearDown() {
         driver.close();
     }
