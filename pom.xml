@@ -40,7 +40,7 @@
 
             </plugin>
 
-            <plugin>
+<!--          <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.10.1</version>
                 <configuration>
@@ -49,7 +49,7 @@
                     <fork>true</fork>
                     <executable>/usr/lib/jvm/java-8-oracle/bin/javac</executable>
                 </configuration>
-            </plugin>
+            </plugin>   -->
 
 
         </plugins>
@@ -76,6 +76,13 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.3.2</version>
         </dependency>
 
     </dependencies>

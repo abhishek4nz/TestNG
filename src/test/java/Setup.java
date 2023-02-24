@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,7 +20,8 @@ public class Setup extends Base {
     void browserSelection(String browser) {
 
         if (browser.equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", path);
+            WebDriverManager.chromedriver().setup();
+//            System.setProperty("webdriver.chrome.driver", path);
             driver = new ChromeDriver();
 
         } else if (browser.equalsIgnoreCase("firefox")) {
@@ -27,7 +29,7 @@ public class Setup extends Base {
             driver=new FirefoxDriver();
         }
         else {
-            System.setProperty("webdriver.chrome.driver", path);
+//            System.setProperty("webdriver.chrome.driver", path);
             driver = new ChromeDriver();
         }
 
