@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="TestNG Test Suite">
-    <test verbose="2" preserve-order="true" name="My first test report">
+<suite name="TestNG Test Suite" preserve-order="false" >
+    <listeners>
+        <listener class-name="Listener"></listener>
+    </listeners>
+
+    <parameter name="browser" value="cme"></parameter>
+    <parameter name="username" value="standard_user"></parameter>
+    <parameter name="password" value="secret_sauce"></parameter>
+
+    <!--    <parameter name="browser" value="firefox"></parameter>  -->
+
+    <test name="My first test report">
         <classes>
-            <class name="Test1">
-<!--                <methods>
-                    <exclude name="second"/>
-                </methods>         -->
+            <class name="Setup">
+                <!--      <methods>
+                           <exclude name="second"/>
+                       </methods>         -->
             </class>
-            <class name="Test2"></class>
+            <class name="Test1"/>
+            <class name="Test3"/>
+            <class name="Test4"/>
         </classes>
-    </test>
-
-    <test verbose="2" preserve-order="true" name="My second test report">
-        <classes>
-            <class name="Test3"></class>
-        </classes>
-
     </test>
 </suite>
+
